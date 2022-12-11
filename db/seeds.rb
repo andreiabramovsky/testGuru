@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-answers = Answer.create!(
+Answer.create!(
   [
     {body: 'Yes', question_id: questions.[0].id, correct: true},
     {body: 'No', question_id: questions.[0].id, correct: false},
@@ -91,7 +91,7 @@ users = User.create!(
   ]
 )
 
-user_tests = UserTest.create!(
+UserTest.create!(
   [
     { test_id: tests[0].id, user_id: users[0].id },
     { test_id: tests[1].id, user_id: users[1].id },
