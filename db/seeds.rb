@@ -16,9 +16,9 @@ categories = Category.create!(
 
 users = User.create!(
   [
-    {name: 'Bob Marley'},
-    {name: 'Lady GaGa'},
-    {name: 'Steven Seagal'}
+    {name: 'Bob Marley', email: 'bob@mail.com'},
+    {name: 'Lady GaGa', email: 'gaga@mail.com'},
+    {name: 'Steven Seagal', email: 'steven@mail.com'}
   ]
 )
 
