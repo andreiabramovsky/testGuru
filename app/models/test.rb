@@ -12,11 +12,10 @@ class Test < ApplicationRecord
   scope :easy_level, -> {where(level: 0..1).order(created_at: :DESC)}
   scope :medium_level, -> {where(level: 2..4).order(created_at: :DESC)}
   scope :high_level, -> {where(level: 5..Float::INFINITY).order(created_at: :DESC)}
+  scope :by_category, -> {joins(:category)
+                          .where(categories: {title: category})}
 
   def self.tests_by_category(category)
-    joins(:category)
-      .where(categories: { title: category })
-      .order(title: :DESC)
-      .pluck(:title)
+    by_category(category).pluck(:title).order(title: :DESC)
   end
 end
