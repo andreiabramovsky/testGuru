@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
   def index
-    
+    @tests = Test.all
   end
 
   def show
@@ -11,6 +11,5 @@ class TestsController < ApplicationController
     @test = Test.new
   end
 
-  def edit
-  end
+  def edit; end
 end
