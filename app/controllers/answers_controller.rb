@@ -11,10 +11,10 @@ class AnswersController < ApplicationController
   def edit; end
 
   def create
-    @answer = Answer.new(answer_params)
+    @answer = @question.answers.build
 
     if @answer.save
-      redirect_to @answer, notice: 'Answer was successfully created'
+      redirect_to test_path(@answer.question.test), notice: "Answer was successfully created."
     else
       render :new
     end

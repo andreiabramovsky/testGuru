@@ -1,5 +1,5 @@
 class TestPassage < ApplicationRecord
-  CORRECT_QUESTIONS_RATIO = 85.freeze
+  CORRECT_QUESTIONS_RATIO = 85
 
   belongs_to :user
   belongs_to :test
