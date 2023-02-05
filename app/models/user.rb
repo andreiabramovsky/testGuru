@@ -1,11 +1,17 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
+
+  unclude Auth
+
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
 
-  validates :name, :email, presence: true
+  has_secure_password
 
-  def user_tests(level)
-    tests.where(level: level)
+  def test_passage(test)
+    test_passage.order(id: :desc).find_by(test_id: test.id)
   end
+
 end
