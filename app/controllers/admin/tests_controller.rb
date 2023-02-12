@@ -1,11 +1,20 @@
-class TestsController < ApplicationController
+class Admin::TestsController < Admin::BaseController
   
-  before_action :authenticate_user!
-  before_action :set_test, only: %i[ start ]
+  before_action :set_test, only: %i[ show edit ]
 
   def index
     @tests = Test.all
   end
+
+  def show
+    @questions = @test.questions
+  end
+
+  def new
+    @test = Test.new
+  end
+
+  def edit; end
 
   def start
     current_user.tests.push(@test)
