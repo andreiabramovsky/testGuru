@@ -1,9 +1,15 @@
 class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[ result show update ]
+  before_action :set_test_passage, except: :start
 
-  def show; end
+  def start
+    @test = Test.find(params[:id])
+  end
+
+  def show
+    @test = Test.find(@test_passage.test_id)
+  end
 
   def result; end
 

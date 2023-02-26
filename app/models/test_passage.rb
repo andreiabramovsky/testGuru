@@ -16,7 +16,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_question_percentage
-    (correct_questions.to_f / all_questions * 100).round(2)
+    (correct_question.to_f / all_questions * 100).round(2)
   end
 
   def all_questions
@@ -28,7 +28,7 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.correct_question += 1 if correct_answer?(answer_ids)
 
     self.current_question = next_question
     save!

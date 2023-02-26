@@ -17,7 +17,7 @@ class User < ApplicationRecord
             format: { with: URI::MailTo::EMAIL_REGEXP }
             
   def test_passage(test)
-    test_passage.order(id: :desc).find_by(test_id: test.id)
+    test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 
 end
