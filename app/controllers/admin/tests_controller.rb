@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
   
-  before_action :set_test, only: %i[ show edit ]
+  before_action :set_test, only: %i[ show edit update destroy start ]
 
   def index
     @tests = Test.all
@@ -21,10 +21,24 @@ class Admin::TestsController < Admin::BaseController
     redirect_to current_user.test_passage(@test)
   end
 
+  def create
+    @test = current_user.authored_tests.new(test_params)
+
+    if @test.save
+      redirect_to admin_test_path(@test), notice: 'Test was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_test
     @test = Test.find(params[:id])
   end
   
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id)
+  end
+
 end
