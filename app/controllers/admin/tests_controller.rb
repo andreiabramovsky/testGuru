@@ -16,11 +16,6 @@ class Admin::TestsController < Admin::BaseController
 
   def edit; end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   def create
     @test = current_user.authored_tests.new(test_params)
 
