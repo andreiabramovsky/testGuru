@@ -1,25 +1,15 @@
 class TestsController < ApplicationController
+  
   before_action :authenticate_user!
-  before_action :set_test, only: %i[ show edit ]
 
   def index
     @tests = Test.all
   end
 
-  def show
-    @questions = @test.questions
-  end
-
-  def new
-    @test = Test.new
-  end
-
-  def edit; end
-
-  private
-
-  def set_test
+  def start
     @test = Test.find(params[:id])
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
   
 end

@@ -16,9 +16,9 @@ categories = Category.create!(
 
 users = User.create!(
   [
-    { name: 'Bob Marley', email: 'bob@mail.com' },
-    { name: 'Lady GaGa', email: 'gaga@mail.com' },
-    { name: 'Steven Seagal', email: 'steven@mail.com' }
+    { name: 'Bob Marley', email: 'bob@mail.com', password: 'topsecret', password_confirmation: 'topsecret'},
+    { name: 'Lady GaGa', email: 'gaga@mail.com', password: 'topsecret', password_confirmation: 'topsecret' },
+    { name: 'Steven Seagal', email: 'steven@mail.com', password: 'topsecret', password_confirmation: 'topsecret' }
   ]
 )
 
@@ -91,13 +91,13 @@ answers = Answer.create!(
   ]
 )
 
-userTests = UserTest.create!(
-  [
-    { test: tests[0], user: users[0] },
-    { test: tests[1], user: users[1] },
-    { test: tests[2], user: users[1] },
-    { test: tests[3], user: users[2] },
-    { test: tests[0], user: users[2] },
-    { test: tests[4], user: users[0] }
-  ]
-)
+# userTests = UserTest.create!(
+#   [
+#     { test: tests[0], user: users[0] },
+#     { test: tests[1], user: users[1] },
+#     { test: tests[2], user: users[1] },
+#     { test: tests[3], user: users[2] },
+#     { test: tests[0], user: users[2] },
+#     { test: tests[4], user: users[0] }
+#   ]
+# )
