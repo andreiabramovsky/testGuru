@@ -17,7 +17,7 @@ class Admin::QuestionsController < Admin::BaseController
     @question = @test.questions.build(question_params)
 
     if @question.save
-      redirect_to @question, notice: 'Question was successfully created.'
+      redirect_to admin_question_path(@question), notice: 'Question was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class Admin::QuestionsController < Admin::BaseController
   def destroy
     @question.destroy
 
-    render plain: 'Question was successfully deleted'
+    redirect_to admin_test_path(@question.test), notice: 'Question was successfully destroyed.'
   end
 
   private
