@@ -1,27 +1,36 @@
 class GistQuestionService
-  def initialize(question, client: nil)
+  Response = Struct.new(:client_response) do
+    def html_url
+      client_response.html_url
+    end
+
+    def success?
+      html_url.present?
+    end
+  end
+
+  def initialize(question, client = default_client)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(access_token: ENV['GITHUB_ACCESS_TOKEN'])
+    @client = client
   end
 
   def call
-    @client.create_gist(gist_params)
-  end
-
-  def success?
-    @client.last_response.status == 201
+    Response.new(@client.create_gist(gist_params))
   end
 
   private
 
+  def default_client
+    Octokit::Client.new(access_token: ENV.fetch('GITHUB_ACCESS_TOKEN'))
+  end
+
   def gist_params
     {
-      "description": I18n.t('gist_question_service.description', test: @test.title),
-      "public": true,
-      "files": {
-        "test-app-question.txt": {
-          "content": gist_content
+      description: I18n.t('gist_description', test_title: @test.title),
+      files: {
+        'test_guru_question.txt': {
+          content: gist_content
         }
       }
     }

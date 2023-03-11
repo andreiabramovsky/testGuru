@@ -4,8 +4,9 @@ ru:
     auth_error: 'Ошибка авторизации на GitGub'
 
   gists:
-    success: "Ваш Gist успешно создан! %{gist_url}"
-    failure: "Во время сохранения Gist произошла ошибка"
+    create:
+      success: "Ваш Gist успешно создан! %{link}"
+      failure: "Во время сохранения Gist произошла ошибка"
 
   devise:
     registrations:

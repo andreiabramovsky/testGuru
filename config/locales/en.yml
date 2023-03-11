@@ -4,8 +4,9 @@ en:
     auth_error: 'GitHub authenticate error'
 
   gists:
-    success: "Your gist was successfully created! %{gist_url}"
-    failure: "An error occurred while saving Gist"
+    create:
+      success: "Your gist was successfully created! %{link}"
+      failure: "An error occurred while saving Gist"
 
   devise:
     registrations:

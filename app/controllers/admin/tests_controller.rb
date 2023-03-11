@@ -24,8 +24,6 @@ class Admin::TestsController < Admin::BaseController
     else
       render :new, status: :unprocessable_entity
     end
-
-    create_gist(@test)
   end
 
   def update
@@ -49,11 +47,5 @@ class Admin::TestsController < Admin::BaseController
   
   def test_params
     params.require(:test).permit(:title, :level, :category_id)
-  end
-
-  def create_gist(test)
-    client = Octokit::Client.new(:access_token => ENV['GITHUB_ACCESS_TOKEN'])
-    responce = client.create_gist({description: "string", files: {"file1.txt": {content: "test.title"}}})
-    
   end
 end
