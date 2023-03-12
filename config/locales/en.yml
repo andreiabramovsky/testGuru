@@ -1,4 +1,13 @@
 en:
+  gist_question_service:
+    description: "Question from %{test} test."
+    auth_error: 'GitHub authenticate error'
+
+  gists:
+    create:
+      success: "Your gist was successfully created! %{link}"
+      failure: "An error occurred while saving Gist"
+
   devise:
     registrations:
       new:
@@ -28,6 +37,12 @@ en:
       start: 'Start test'
 
   admin:
+    gists:
+      index:
+        question: 'Question'
+        url: 'URL'
+        user: 'User'
+
     nav:
       admin_panel: 'Admin Panel | Welcome, %{name}'
       exit: 'Exit'
