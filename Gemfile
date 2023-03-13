@@ -28,11 +28,12 @@ gem 'jbuilder', '~> 2.7'
 # Auth
 gem 'devise', '~> 4.0'
 
-#UI
+# UI
 gem 'jquery-rails'
-gem 'bootstrap'
+gem 'bootstrap', "~> 4.0"
 
 gem "octokit", "~> 5.0"
+gem 'octicons_helper'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
