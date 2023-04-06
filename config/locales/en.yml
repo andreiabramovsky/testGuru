@@ -76,6 +76,8 @@ en:
         show: 'Show'
         edit: 'Edit'
         delete: 'Delete'
+      form_inline:
+        submit: "Ok"
 
   helpers:
     submit:
