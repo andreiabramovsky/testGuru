@@ -2,6 +2,12 @@
 
 <%= @test_passage.position_of_current_question %> / <%= @test_passage.all_questions %><br>
 
+<%= content_tag :span, 
+                class: 'progress-bar align-middle', 
+                data: { position_of_current_question: @test_passage.position_of_current_question, 
+                        all_questions: @test_passage.all_questions } do %>
+<% end %>
+
 <b>
   <%= @test_passage.current_question.body %>
 </b>
