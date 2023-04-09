@@ -9,19 +9,16 @@ class RowSort {
     this.control.addEventListener('click', event => { this.sortRows() })
   }
 
-
   sortRows() {
     let table = document.querySelector('table')
-
     let rows = table.querySelectorAll('tr')
     let sortedRows = []
-
 
     for (let i = 1; i < rows.length; i++) {
       sortedRows.push(rows[i])
     }
   
-    if (this.control.querySelector('.octicon-arrow-up').classList.contains('hide')) {
+    if (this.isSortedDesc()) {
       sortedRows.sort(this.compareRowsAsc)
       this.control.querySelector('.octicon-arrow-up').classList.remove('hide')
       this.control.querySelector('.octicon-arrow-down').classList.add('hide')
@@ -32,16 +29,22 @@ class RowSort {
     }
   
     let sortedTable = document.createElement('table')
+    let tbody = document.createElement('tbody')
+    sortedTable.appendChild(tbody)
   
-    sortedTable.classList.add('table', 'table-primary', 'table-striped')
-    sortedTable.appendChild(rows[0])
+    sortedTable.classList.add('table')
+    tbody.appendChild(rows[0])
   
     for (let i = 0; i < sortedRows.length; i++) {
-      sortedTable.appendChild(sortedRows[i])
+      tbody.appendChild(sortedRows[i])
     }
-  
     table.parentNode.replaceChild(sortedTable, table)
   }
+
+  isSortedDesc() {
+    return this.control.querySelector('.octicon-arrow-up').classList.contains('hide')
+  }
+
   compareRowsAsc(row1, row2) {
     let testTitle1 = row1.querySelector('td').textContent
     let testTitle2 = row2.querySelector('td').textContent
@@ -60,6 +63,7 @@ class RowSort {
     return 0 
   }
 }
+
 document.addEventListener('turbolinks:load', function() {
     const control = document.querySelector('.sort-by-title')
   
