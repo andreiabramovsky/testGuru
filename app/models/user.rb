@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
+  has_many :feedbacks, dependent: :destroy
   has_many :gists, dependent: :destroy
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
