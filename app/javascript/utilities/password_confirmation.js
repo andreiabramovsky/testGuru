@@ -1,24 +1,25 @@
 class PasswordConfirmation {
   constructor(form) {
+    
     this.form = form
     this.password = form.user_password
-    this.password_confirmation = form.user_password_confirm
+    this.password_confirm = form.user_password_confirm
     this.setup()
   }
 
   resetStyleForInputs() {
-    this.password_comfirm.classList.remove('input-green')
-    this.password_comfirm.classList.remove('input-red')
+    this.password_confirm.classList.remove('input-green')
+    this.password_confirm.classList.remove('input-red')
   }
 
 
   checkPasswords() {
     this.resetStyleForInputs()
 
-    if (this.password_comfirm.value === this.password.value) {
-      this.password_comfirm.classList.add('input-green') 
+    if (this.password_confirm.value === this.password.value) {
+      this.password_confirm.classList.add('input-green') 
     } else {
-      this.password_comfirm.classList.add('input-red')
+      this.password_confirm.classList.add('input-red')
     }
   }
 
@@ -29,5 +30,7 @@ class PasswordConfirmation {
   }
 }
 
-const reg_form = document.getElementById('registration-user')
-if(reg_form) new PasswordConfirmation(reg_form) 
+window.onload = function() {
+  const reg_form = document.getElementById('new_user')
+  if(reg_form) new PasswordConfirmation(reg_form) 
+}
