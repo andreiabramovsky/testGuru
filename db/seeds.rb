@@ -6,35 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-categories = Category.create!(
-  [
+categories = [
     { title: 'Animals' },
     { title: 'Plants' },
     { title: 'Sports' }
-  ]
-)
+  ].each do |category|
+    Category.find_or_create_by!(category)
 
-users = User.create!(
-  [
+users = [
     { name: 'Bob Marley', email: 'bob@mail.com', password: 'topsecret', password_confirmation: 'topsecret'},
     { name: 'Lady GaGa', email: 'gaga@mail.com', password: 'topsecret', password_confirmation: 'topsecret' },
     { name: 'Steven Seagal', email: 'steven@mail.com', password: 'topsecret', password_confirmation: 'topsecret' }
-  ]
-)
+  ].each do |user|
+    User.find_or_create_by!(user)
 
-tests = Test.create!(
-  [
+
+tests = [
     { title: 'Cats', level: 0, author: users[0], category: categories[0] },
     { title: 'Dogs', level: 1, author: users[1], category: categories[0] },
     { title: 'Flowers', level: 1, author: users[0], category: categories[1] },
     { title: 'Woods', level: 2, author: users[2], category: categories[1] },
     { title: 'Chess', level: 2, author: users[2], category: categories[2] },
     { title: 'Checkers', level: 3, author: users[2], category: categories[2] }
-  ]
-)
+  ].each do |test|
+    Test.find_or_create_by!(test)
 
-questions = Question.create!(
-  [
+questions = [
     { body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?', test: tests[0] },
     { body: 'Aenean lacus purus, hendrerit at est nec, pulvinar feugiat enim?', test: tests[0] },
     { body: 'Donec vehicula pellentesque pharetra?', test: tests[1] },
@@ -47,11 +44,10 @@ questions = Question.create!(
     { body: 'Suspendisse id risus sit amet magna porta tincidunt sed in dui?', test: tests[4] },
     { body: 'Vivamus volutpat lacus in metus lobortis vestibulum?', test: tests[5] },
     { body: 'Praesent eget euismod massa, sit amet volutpat eros?', test: tests[5] }
-  ]
-)
+  ].each do |question|
+    Question.find_or_create_by!(question)
 
-answers = Answer.create!(
-  [
+answers = [
     { body: 'Yes', question: questions[0], correct: true },
     { body: 'No', question: questions[0], correct: false },
     { body: 'Maybe yes', question: questions[0], correct: false },
@@ -88,8 +84,9 @@ answers = Answer.create!(
     { body: 'Eleven', question: questions[11], correct: true },
     { body: 'Twelve', question: questions[11], correct: false },
     { body: 'Thirteen', question: questions[11], correct: false }
-  ]
-)
+].each do |answer|
+  Answer.find_or_create_by!(answer)
+end
 
 # userTests = UserTest.create!(
 #   [
