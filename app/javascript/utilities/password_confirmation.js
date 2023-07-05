@@ -14,8 +14,10 @@ class PasswordConfirmation {
 
 
   checkPasswords() {
-    this.resetStyleForInputs()
+    if (this.password_confirm==undefined) return 
 
+    this.resetStyleForInputs()
+    
     if (this.password_confirm.value === this.password.value) {
       this.password_confirm.classList.add('input-green') 
     } else {
