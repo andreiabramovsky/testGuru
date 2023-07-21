@@ -73,7 +73,7 @@ class AddSeeds < ActiveRecord::Migration[6.1]
       },
     ]
   
-    seed_tests(tests)
+    # seed_tests(tests)
   
   end
 
