@@ -14,12 +14,13 @@ categories = [
   Category.find_or_create_by!(category)
 end
 
-#users = [
-#   { name: 'Bob Marley', email: 'bob@mail.com', password: 'topsecret', password_confirmation: 'topsecret'},
-#   { name: 'Lady GaGa', email: 'gaga@mail.com', password: 'topsecret', password_confirmation: 'topsecret' },    { name: 'Steven Seagal', email: 'steven@mail.com', password: 'topsecret', password_confirmation: 'topsecret' }
-# ].each do |user|
-#   User.find_or_create_by!(user)
-# end
+users = [
+   { name: 'Bob Marley', email: 'bob@mail.com', password: 'topsecret', password_confirmation: 'topsecret' },
+   { name: 'Lady GaGa', email: 'gaga@mail.com', password: 'topsecret', password_confirmation: 'topsecret' },
+   { name: 'Steven Seagal', email: 'steven@mail.com', password: 'topsecret', password_confirmation: 'topsecret' }
+ ].each do |user|
+   User.find_or_create_by!(user)
+ end
 
 tests = [
   { title: 'Cats', level: 0, author: users[0], category: categories[0] },
