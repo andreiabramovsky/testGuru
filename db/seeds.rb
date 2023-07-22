@@ -19,7 +19,7 @@ users = [
    { name: 'Lady GaGa', email: 'gaga@mail.com', password: 'topsecret', password_confirmation: 'topsecret' },
    { name: 'Steven Seagal', email: 'steven@mail.com', password: 'topsecret', password_confirmation: 'topsecret' }
  ].each do |user|
-   User.find_or_create_by!(user)
+   User.create(user)
  end
 
 tests = [
