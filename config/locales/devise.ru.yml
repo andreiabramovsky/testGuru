@@ -1,5 +1,11 @@
 ru:
   devise:
+    shared:
+      links:
+        login: "Авторизоваться"
+        signup: "Зарегистрироваться"
+        forgot_your_password: "Забыли пароль?"
+        didn_t_receive_confirmation_instructions: "Не получили инструкцию по подтверждению?"
     confirmations:
       confirmed: "Учётная запись успешно подтверждена."
       send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
