@@ -23,12 +23,12 @@ users = [
  end
 
 tests = [
-  { title: 'Cats', level: 0, author: users[0], category: categories[0] },
-  { title: 'Dogs', level: 1, author: users[1], category: categories[0] },
-  { title: 'Flowers', level: 1, author: users[0], category: categories[1] },
-  { title: 'Woods', level: 2, author: users[2], category: categories[1] },
-  { title: 'Chess', level: 2, author: users[2], category: categories[2] },
-  { title: 'Checkers', level: 3, author: users[2], category: categories[2] }
+  { title: 'Cats', level: 0, user: users[0], category: categories[0] },
+  { title: 'Dogs', level: 1, user: users[1], category: categories[0] },
+  { title: 'Flowers', level: 1, user: users[0], category: categories[1] },
+  { title: 'Woods', level: 2, user: users[2], category: categories[1] },
+  { title: 'Chess', level: 2, user: users[2], category: categories[2] },
+  { title: 'Checkers', level: 3, user: users[2], category: categories[2] }
 ].each do |test|
   Test.find_or_create_by!(test)
 end
